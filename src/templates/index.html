@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iris - Model prediction</title>
+</head>
+<body>
+    <h2>Introduce the values</h2>	
+
+    <form action="/" method="post">
+        Pregnancies: <input type="number" step="any" name="preg" required><br><br>
+        Glucose: <input type="number" step="any" name="gluc" required><br><br>
+        BloodPressure: <input type="number" step="any" name="bloodpress" required><br><br>
+        SkinThickness: <input type="number" step="any" name="skinthick" required><br><br>
+        Insulin: <input type="number" step="any" name="ins" required><br><br>
+        BMI: <input type="number" step="any" name="bmi" required><br><br>
+        DiabetesPedigreeFunction: <input type="number" step="any" name="DiaPedFun" required><br><br>
+        Age: <input type="number" step="any" name="age" required><br><br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction != None %}
+        <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
