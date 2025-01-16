@@ -14,21 +14,27 @@ class_dict = {
 @app.route("/", methods = ["GET", "POST"])
 def index():
     if request.method == "POST":
+        try:
+            # Obtain values from form
+            preg = float(request.form["preg"])
+            gluc = float(request.form["gluc"])
+            bloodpress = float(request.form["bloodpress"])
+            skinthick = float(request.form["skinthick"])
+            ins = float(request.form["ins"])
+            bmi = float(request.form["bmi"])
+            DiaPedFun = float(request.form["DiaPedFun"])
+            age = float(request.form["age"])
         
-        # Obtain values from form
-        preg = float(request.form["preg"])
-        gluc = float(request.form["gluc"])
-        bloodpress = float(request.form["bloodpress"])
-        skinthick = float(request.form["skinthick"])
-        ins = float(request.form["ins"])
-        bmi = float(request.form["bmi"])
-        DiaPedFun = float(request.form["DiaPedFun"])
-        age = float(request.form["age"])
-        
-        data = scaler.transform([preg, gluc, bloodpress, skinthick, ins, bmi, DiaPedFun, age])
+            data = scaler.transform([[preg, gluc, bloodpress, skinthick, ins, bmi, DiaPedFun, age]])
 
-        prediction = str(model.predict(data)[0])
-        pred_class = class_dict[prediction]
+            prediction = str(model.predict(data)[0])
+            pred_class = class_dict[prediction]
+
+        except ValueError:
+            pred_class = "Error: Por favor ingresa valores numéricos válidos."
+        except Exception as e:
+            pred_class = f"Error inesperado: {e}"
+        
     else:
         pred_class = None
     
