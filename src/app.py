@@ -3,7 +3,7 @@ from pickle import load
 from sklearn.preprocessing import StandardScaler
 
 app = Flask(__name__)
-model = load(open("/workspaces/Proy-Arbol-de-Decision-VLG/src/decision_tree_classifier_default_42.sav", "rb"))
+model = load(open("decision_tree_classifier_default_42.sav", "rb"))
 class_dict = {
     "0": "Sin Diabetes",
     "1": "Con Diabetes"
