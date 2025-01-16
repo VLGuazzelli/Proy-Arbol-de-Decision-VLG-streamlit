@@ -4,6 +4,8 @@ from sklearn.preprocessing import StandardScaler
 
 app = Flask(__name__)
 model = load(open("decision_tree_classifier_default_42.sav", "rb"))
+scaler = load(open("model_scaler.sav", "rb"))  # Asegúrate de haber guardado el scaler
+
 class_dict = {
     "0": "Sin Diabetes",
     "1": "Con Diabetes"
