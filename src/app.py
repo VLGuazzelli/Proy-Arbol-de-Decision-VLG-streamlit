@@ -11,8 +11,6 @@ class_dict = {
     "1": "Con Diabetes"
 }
 
-scaler = StandardScaler()
-
 @app.route("/", methods = ["GET", "POST"])
 def index():
     if request.method == "POST":
