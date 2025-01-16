@@ -39,3 +39,5 @@ def index():
         pred_class = None
     
     return render_template("index.html", prediction = pred_class)
+
+# Enlace de la página web funcionando: https://proy-arbol-de-decision-vlg.onrender.com
